@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
         <a href="#" className="flex-shrink-0 flex items-center gap-3 group">
           {!imgError ? (
             <img
-              src="public/logo.png"
+              src="https://iili.io/f31WZej.png"
               alt="Digica Logo"
               width="140"
               height="40"

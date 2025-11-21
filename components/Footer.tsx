@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 export const Footer: React.FC = () => {
   const [imgError, setImgError] = useState(false);
-  const [imgSrc, setImgSrc] = useState('/logo-footer.png');
+  const [imgSrc, setImgSrc] = useState('https://iili.io/f31WZej.png');
   useEffect(() => {
     // Debug: Log the image path being used
     console.log('Attempting to load image from:', imgSrc);
@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
         <a href="#" className="flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity">
           {!imgError ? (
             <img
-              src={imgSrc}
+              src="https://iili.io/f31WZej.png"
               alt="Digica Industrial AI"
               width="150"
               height="50"
