@@ -1,0 +1,87 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+export const Header: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [imgError, setImgError] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  const logoPath = typeof window !== 'undefined' ? `${window.location.origin}/logo.png` : '/logo.png';
+  return (
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
+        isScrolled
+          ? 'bg-white backdrop-blur-sm border-gray-200 py-3 shadow-sm'
+          : 'bg-white backdrop-blur-sm border-transparent py-5'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <a href="#" className="flex-shrink-0 flex items-center gap-3 group">
+          {!imgError ? (
+            <img
+              src="public/logo.png"
+              alt="Digica Logo"
+              width="140"
+              height="40"
+              className="h-8 md:h-9 w-auto object-contain"
+              onError={(e) => {
+                console.warn("Logo failed to load from:", logoPath);
+                setImgError(true);
+              }}
+            />
+          ) : (
+            <div className="flex items-center gap-1">
+               <span className="font-slab font-bold text-2xl tracking-tight text-digica-dark">
+                 digica<span className="text-digica-red text-3xl leading-[0]">.</span>
+               </span>
+            </div>
+          )}
+          <div className="hidden md:block h-8 w-px bg-gray-300 mx-1"></div>
+          <span className="hidden md:block text-[10px] font-mono text-gray-500 leading-tight uppercase tracking-widest pt-1">
+            Intelligent<br/>Software
+          </span>
+        </a>
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#problem" className="text-sm font-medium text-gray-600 hover:text-digica-red transition-colors">The Graveyard</a>
+          <a href="#projects" className="text-sm font-medium text-gray-600 hover:text-digica-red transition-colors">Projects</a>
+          <a href="#process" className="text-sm font-medium text-gray-600 hover:text-digica-red transition-colors">How We Work</a>
+          <a href="#about" className="text-sm font-medium text-gray-600 hover:text-digica-red transition-colors">About</a>
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-digica-red text-white px-5 py-2 text-sm font-medium hover:bg-red-700 transition-colors rounded-sm"
+          >
+            Book Consultation
+          </button>
+        </nav>
+        <button
+          className="md:hidden text-digica-dark"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 py-4 px-6 flex flex-col gap-4 shadow-lg">
+          <a href="#problem" className="text-sm font-medium text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>The Graveyard</a>
+          <a href="#projects" className="text-sm font-medium text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
+          <a href="#process" className="text-sm font-medium text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>How We Work</a>
+          <a href="#about" className="text-sm font-medium text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="bg-digica-red text-white px-5 py-2 text-sm font-medium text-center rounded-sm w-full"
+          >
+            Book Consultation
+          </button>
+        </div>
+      )}
+    </header>
+  );
+};
