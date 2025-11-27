@@ -6,13 +6,13 @@ const logos = [
   { name: "AMD", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/AMD_Logo.svg/320px-AMD_Logo.svg.png" },
   { name: "Meta", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/320px-Meta_Platforms_Inc._logo.svg.png" },
   { name: "Roche", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Hoffmann-La_Roche_logo.svg/320px-Hoffmann-La_Roche_logo.svg.png" },
-  { name: "Teledyne FLIR", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Teledyne_FLIR_logo.svg/320px-Teledyne_FLIR_logo.svg.png" },
-  { name: "T-Mobile", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/T-Mobile_Logo.svg/320px-T-Mobile_Logo.svg.png" },
-  { name: "NHS", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/NHS-Logo.svg/320px-NHS-Logo.svg.png" },
-  { name: "B. Braun", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/B._Braun_logo.svg/320px-B._Braun_logo.svg.png" },
+  { name: "Teledyne FLIR", url: "https://iili.io/fKCHadN.webp" },
+  { name: "T-Mobile", url: "https://iili.io/fKCxd8u.webp" },
+  { name: "NHS", url: "https://iili.io/fKCFtqu.webp" },
+  { name: "B. Braun", url: "https://iili.io/fKCCiPt.webp" },
   // ORtelligence is niche; trying clearbit first, will fallback to text automatically if fails
-  { name: "ORtelligence", url: "https://logo.clearbit.com/ortelligence.com" },
-  { name: "Dyson", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Dyson_logo.svg/320px-Dyson_logo.svg.png" },
+  { name: "ORtelligence", url: "https://iili.io/fKCn0WN.webp" },
+  { name: "Dyson", url: "https://iili.io/fKCd7RI.webpg" },
 ];
 
 // Smart Logo Component that handles its own error state

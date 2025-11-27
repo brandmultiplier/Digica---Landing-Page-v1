@@ -1,5 +1,5 @@
 import React from 'react';
-import { Network, ShieldCheck, LineChart, Timer } from 'lucide-react';
+import { Network, ShieldCheck, LineChart, Timer, ArrowRight } from 'lucide-react';
 import { SectionHeading } from './SectionHeading';
 
 export const Difference: React.FC = () => {
@@ -36,7 +36,7 @@ export const Difference: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {differences.map((item, idx) => (
             <div key={idx} className="group p-8 border border-gray-200 hover:border-digica-red/30 rounded-sm transition-all hover:shadow-lg bg-gray-50 hover:bg-white">
               <div className="text-digica-dark mb-6 group-hover:text-digica-red transition-colors">
@@ -48,6 +48,16 @@ export const Difference: React.FC = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-center">
+          <button 
+             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+             className="inline-flex items-center justify-center gap-2 bg-digica-red text-white px-8 py-4 font-semibold hover:bg-red-600 transition-all rounded-sm shadow-lg shadow-red-900/20 group"
+          >
+            Book a Strategic Consultation
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
       </div>
     </section>

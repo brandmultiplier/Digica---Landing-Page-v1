@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertTriangle, Database, Unplug } from 'lucide-react';
+import { AlertTriangle, Database, Unplug, ArrowRight } from 'lucide-react';
 
 export const PilotGraveyard: React.FC = () => {
   return (
@@ -8,10 +8,10 @@ export const PilotGraveyard: React.FC = () => {
       <div className="absolute inset-0 opacity-10 grid-bg-dark pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-12 mb-16">
           
           {/* Left Column: The Narrative */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="flex items-center gap-2 text-digica-red font-mono font-bold mb-4">
               <AlertTriangle className="w-5 h-5" />
               <span>THE PROBLEM</span>
@@ -67,6 +67,17 @@ export const PilotGraveyard: React.FC = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* CTA Button: Centered and OUTSIDE the Grid */}
+        <div className="flex justify-center">
+          <button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center justify-center gap-2 bg-digica-red text-white px-8 py-4 font-semibold hover:bg-red-600 transition-all rounded-sm shadow-lg shadow-red-900/20 group w-full sm:w-auto"
+          >
+            Book a Strategic Consultation
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
       </div>
     </section>

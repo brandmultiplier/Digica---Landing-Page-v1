@@ -8,7 +8,7 @@ export const About: React.FC = () => {
        
        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
          <div>
-           <SectionHeading dark>Who are Digica?</SectionHeading>
+           <SectionHeading dark>Who is Digica?</SectionHeading>
            <ul className="space-y-6 text-lg text-gray-300 font-light">
              <li className="flex items-start gap-3">
                <span className="w-1.5 h-1.5 rounded-full bg-digica-red mt-2.5 flex-shrink-0"></span>

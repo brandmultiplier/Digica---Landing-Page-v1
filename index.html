@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,11 +27,37 @@
             },
             animation: {
               scroll: 'scroll 40s linear infinite',
+              'scan-vertical': 'scan-vertical 8s linear infinite',
+              'pulse-fast': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'pan-diagonal': 'pan-diagonal 20s linear infinite',
+              'float-slow': 'float-slow 10s ease-in-out infinite',
+              'matrix-rain': 'matrix-rain 10s linear infinite',
+              'spin-3d': 'spin-3d 20s linear infinite',
             },
             keyframes: {
               scroll: {
                 '0%': { transform: 'translateX(0)' },
                 '100%': { transform: 'translateX(-50%)' },
+              },
+              'scan-vertical': {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              'pan-diagonal': {
+                '0%': { backgroundPosition: '0% 0%' },
+                '100%': { backgroundPosition: '100% 100%' },
+              },
+              'float-slow': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              'matrix-rain': {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100vh)' },
+              },
+              'spin-3d': {
+                '0%': { transform: 'rotateX(0deg) rotateY(0deg)' },
+                '100%': { transform: 'rotateX(360deg) rotateY(360deg)' },
               }
             }
           }
@@ -39,6 +65,9 @@
       }
     </script>
     <style>
+      html {
+        scroll-padding-top: 100px; /* Ensures header doesn't cover content on scroll */
+      }
       body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

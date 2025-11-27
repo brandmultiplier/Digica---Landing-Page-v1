@@ -1,34 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+
 export const Footer: React.FC = () => {
   const [imgError, setImgError] = useState(false);
-  const [imgSrc, setImgSrc] = useState('https://iili.io/f31WZej.png');
-  useEffect(() => {
-    // Debug: Log the image path being used
-    console.log('Attempting to load image from:', imgSrc);
-  }, [imgSrc]);
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    console.error('Failed to load footer logo from:', e.currentTarget.src);
-    console.error('Current href:', window.location.href);
-    console.error('Expected image URL:', window.location.origin + '/logo-footer.png');
-    setImgError(true);
-  };
-  const handleImageLoad = () => {
-    console.log('Footer logo loaded successfully from:', imgSrc);
-  };
+
   return (
     <footer className="bg-black text-gray-400 py-12 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      {/* Added 'relative' to container to support absolute positioning of centered text on desktop */}
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 relative">
+        
         {/* Logo Section */}
         <a href="#" className="flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity">
           {!imgError ? (
-            <img
+            <img 
               src="https://iili.io/f31WZej.png"
               alt="Digica Industrial AI"
               width="150"
               height="50"
               className="h-9 w-auto object-contain brightness-0 invert"
-              onError={handleImageError}
-              onLoad={handleImageLoad}
+              onError={() => setImgError(true)}
             />
           ) : (
             // Fallback Text Logo (White for Footer)
@@ -39,13 +28,30 @@ export const Footer: React.FC = () => {
             </div>
           )}
         </a>
-        <div className="text-sm">
+        
+        {/* Copyright - Absolutely centered on Desktop for precision, flowing naturally on Mobile */}
+        <div className="text-sm text-center w-full md:w-auto md:absolute md:left-1/2 md:-translate-x-1/2">
           &copy; {new Date().getFullYear()} Digica Industrial AI. All rights reserved.
         </div>
+
+        {/* Links Section - Updated URLs & Removed LinkedIn */}
         <div className="flex gap-6 text-sm">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+          <a 
+            href="https://www.digica.com/privacy-and-cookie-policy.html" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            Privacy Policy
+          </a>
+          <a 
+            href="https://www.digica.com/terms-and-conditions.html" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            Terms of Service
+          </a>
         </div>
       </div>
     </footer>
