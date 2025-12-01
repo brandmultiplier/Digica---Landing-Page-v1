@@ -48,7 +48,7 @@ export const Personas: React.FC = () => {
             </p>
             
             <p className="text-gray-400 leading-relaxed">
-              You're judged on uptime and output. We deliver predictive alerts that prevent unplanned downtime, improve yield, and stabilize throughput—without disrupting operations.
+              You're judged on uptime and output. We deliver predictive alerts that prevent unplanned downtime, improve yield, and stabilise throughput—without disrupting operations.
             </p>
           </div>
 

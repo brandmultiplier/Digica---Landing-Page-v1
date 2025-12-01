@@ -31,9 +31,28 @@ const WireframeCube = () => (
   </div>
 );
 
+// COMPONENT: Falling Data Stream (Matrix Style)
+const DataStream = ({ left, delay, duration, opacity }: { left: string, delay: string, duration: string, opacity: number }) => (
+  <div 
+    className="absolute top-[-150px] text-[10px] font-mono text-digica-red leading-tight select-none pointer-events-none data-stream"
+    style={{
+      left,
+      animationDelay: delay,
+      animationDuration: duration,
+      opacity: opacity,
+      writingMode: 'vertical-rl',
+      textOrientation: 'upright',
+      height: '120%', 
+    }}
+  >
+    {/* UK Spelling Fix: OPTIMISE */}
+    {'01AF B3C4 99FF 0010 SYSTEM_CHK MEM_OK OPTIMISE 45.23.11 0000 1111'.split(' ').join('\u00A0\u00A0')}
+  </div>
+);
+
 export const Hero: React.FC = () => {
   return (
-    // FIX 1: clipPath: 'inset(0)' is the nuclear option. It strictly cuts off ANY rendering outside the box at the GPU level.
+    // FIX: Added 'isolate' to force a new stacking context.
     <section 
       className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-digica-dark min-h-[90vh] flex items-center isolate"
       style={{ clipPath: 'inset(0)' }}
@@ -41,6 +60,14 @@ export const Hero: React.FC = () => {
       
       {/* === INJECTED CSS STYLES === */}
       <style>{`
+        @keyframes matrix-fall {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(100%); }
+        }
+        .data-stream {
+          animation: matrix-fall linear infinite;
+        }
+        
         @keyframes spin-3d-custom {
           0% { transform: rotateX(0deg) rotateY(0deg); }
           100% { transform: rotateX(360deg) rotateY(360deg); }
@@ -79,7 +106,6 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0 overflow-hidden bg-[#0a0a0a]">
         
         {/* 1. Moving Grid Floor */}
-        {/* FIX 2: Added radial mask-image. Even if clip-path fails, the grid lines fade to transparent at edges */}
         <div 
           className="absolute inset-[-50%] opacity-30 transform -skew-x-12 scale-125 pointer-events-none"
           style={{ 
@@ -90,14 +116,22 @@ export const Hero: React.FC = () => {
            <div className="absolute inset-0 bg-[linear-gradient(rgba(217,60,44,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(217,60,44,0.15)_1px,transparent_1px)] bg-[size:40px_40px] animate-pan-grid"></div>
         </div>
 
-        {/* 2. 3D Wireframe Blueprint */}
+        {/* 2. Data Streams */}
+        <DataStream left="10%" delay="0s" duration="8s" opacity={0.3} />
+        <DataStream left="25%" delay="2s" duration="12s" opacity={0.2} />
+        <DataStream left="45%" delay="4s" duration="10s" opacity={0.25} />
+        <DataStream left="60%" delay="1s" duration="15s" opacity={0.15} />
+        <DataStream left="80%" delay="3s" duration="9s" opacity={0.3} />
+        <DataStream left="95%" delay="5s" duration="11s" opacity={0.2} />
+
+        {/* 3. 3D Wireframe Blueprint */}
         <WireframeCube />
 
-        {/* 3. Vignette & Fade Overlay */}
+        {/* 4. Vignette & Fade Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-digica-dark via-transparent to-digica-dark"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-digica-dark via-transparent to-digica-dark/50"></div>
 
-        {/* 4. HUD Overlay Elements */}
+        {/* 5. HUD Overlay Elements */}
         <div className="absolute top-32 left-10 hidden lg:block z-10">
            <div className="font-mono text-[10px] text-digica-red animate-pulse">
              SYSTEM_DIAGNOSTICS<br/>
@@ -113,7 +147,6 @@ export const Hero: React.FC = () => {
         
         {/* TEXT CONTENT */}
         <div className="max-w-2xl relative">
-          {/* Decorative bracket */}
           <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-digica-red to-transparent opacity-50 hidden md:block"></div>
           
           <div className="inline-flex items-center gap-2 mb-6 border border-digica-red/30 bg-digica-red/10 px-3 py-1 rounded-sm backdrop-blur-sm">
@@ -154,13 +187,8 @@ export const Hero: React.FC = () => {
 
         {/* HUD CARD VISUAL */}
         <div className="relative hidden lg:flex items-center justify-center">
-          {/* Card Container */}
           <div className="relative w-full max-w-md">
-             
-             {/* Backdrop Glow */}
              <div className="absolute inset-0 bg-digica-red/5 blur-3xl rounded-full"></div>
-
-             {/* Main Dashboard Card */}
              <div className="relative z-10 bg-[#121212] border border-white/10 p-1 rounded-xl shadow-2xl backdrop-blur-md">
                 <div className="bg-[#0f0f0f] rounded-lg p-6 border border-white/5">
                     <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
@@ -172,7 +200,6 @@ export const Hero: React.FC = () => {
                     </div>
 
                     <div className="space-y-4">
-                      {/* Stat Row 1 */}
                       <div className="group bg-white/5 p-4 rounded border border-white/5 hover:border-digica-red/50 transition-colors relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-20 transition-opacity">
                             <Activity className="w-12 h-12 text-digica-red" />
@@ -187,7 +214,6 @@ export const Hero: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Stat Row 2 */}
                       <div className="group bg-white/5 p-4 rounded border border-white/5 hover:border-digica-red/50 transition-colors relative overflow-hidden">
                          <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-20 transition-opacity">
                             <Database className="w-12 h-12 text-digica-red" />
@@ -202,7 +228,6 @@ export const Hero: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Stat Row 3 */}
                       <div className="group bg-white/5 p-4 rounded border border-white/5 hover:border-digica-red/50 transition-colors relative overflow-hidden">
                          <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-20 transition-opacity">
                             <Cpu className="w-12 h-12 text-digica-red" />
@@ -224,7 +249,6 @@ export const Hero: React.FC = () => {
                     </div>
                 </div>
                 
-                {/* Decorative lines around card */}
                 <div className="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-digica-red/50"></div>
                 <div className="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-digica-red/50"></div>
              </div>

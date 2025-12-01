@@ -14,7 +14,7 @@ export const Process: React.FC = () => {
     },
     {
       title: "Review Data",
-      desc: "We analyze your sample data for 2-3 days free of charge.",
+      desc: "We analyse your sample data for 2-3 days free of charge.",
       icon: <Search className="w-6 h-6" />,
       detail: "Overview of potential project & indicative budgets."
     },
