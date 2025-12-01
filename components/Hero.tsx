@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
   return (
     // FIX 1: clipPath: 'inset(0)' is the nuclear option. It strictly cuts off ANY rendering outside the box at the GPU level.
     <section 
-      className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-digica-dark min-h-[90vh] flex items-center isolate"
+      className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-digica-dark min-h-[90vh] flex items-center isolate"
       style={{ clipPath: 'inset(0)' }}
     >
       
@@ -98,7 +98,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-digica-dark via-transparent to-digica-dark/50"></div>
 
         {/* 4. HUD Overlay Elements */}
-        <div className="absolute top-32 left-4 hidden lg:block z-10">
+        <div className="absolute top-32 left-10 hidden lg:block z-10">
            <div className="font-mono text-[10px] text-digica-red animate-pulse">
              SYSTEM_DIAGNOSTICS<br/>
              ------------------<br/>
@@ -112,7 +112,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-20">
         
         {/* TEXT CONTENT */}
-        <div className="max-w-2xl relative lg:ml-12">
+        <div className="max-w-2xl relative">
           {/* Decorative bracket */}
           <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-digica-red to-transparent opacity-50 hidden md:block"></div>
           

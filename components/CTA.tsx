@@ -1,28 +1,51 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useEffect } from 'react';
 
 export const CTA: React.FC = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "//js.hsforms.net/forms/embed/v2.js";
+    script.charset = "utf-8";
+    script.type = "text/javascript";
+    script.async = true;
+
+    script.onload = () => {
+      // @ts-ignore
+      if (window.hbspt) {
+        // @ts-ignore
+        window.hbspt.forms.create({
+          portalId: "3066619",
+          formId: "9d155bcb-5412-473e-9b71-190a6c836718",
+          region: "na1",
+          target: '#hubspot-form-container'
+        });
+      }
+    };
+
+    document.body.appendChild(script);
+
+    return () => {
+      // Clean up script if component unmounts
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <section id="contact" className="py-24 bg-digica-dark text-white relative overflow-hidden">
       {/* Abstract BG */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
       
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to escape the Pilot Graveyard?</h2>
-        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to escape the Pilot Graveyard?</h2>
+        <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
           Stop building demos. Start building systems that survive the factory floor.
         </p>
         
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="inline-flex items-center justify-center gap-2 bg-digica-red text-white px-8 py-4 font-bold text-lg hover:bg-red-600 transition-all rounded-sm">
-            Book a Strategic Consultation
-            <ArrowRight className="w-5 h-5" />
-          </button>
+        {/* HubSpot Form Container - Wrapped in white for visibility */}
+        <div className="max-w-xl mx-auto bg-white rounded-md p-6 md:p-8 shadow-2xl text-left text-gray-900">
+           <div id="hubspot-form-container"></div>
         </div>
-        
-        <p className="mt-8 text-sm text-gray-500 font-mono">
-          No sales pitch. Just engineering discussion.
-        </p>
       </div>
     </section>
   );
