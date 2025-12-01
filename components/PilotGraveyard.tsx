@@ -51,7 +51,7 @@ export const PilotGraveyard: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg mb-2">The "Data Cleaning" Trap</h4>
-                  <p className="text-gray-400 text-sm">Your team spends 90% of their time cleaning CSVs manually because the solution lacks automated data harmonization pipelines.</p>
+                  <p className="text-gray-400 text-sm">Your team spends 90% of their time cleaning CSVs manually because the solution lacks automated data harmonisation pipelines.</p>
                 </div>
               </div>
 
@@ -61,7 +61,7 @@ export const PilotGraveyard: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg mb-2">The Phantom Green Light</h4>
-                  <p className="text-gray-400 text-sm">Dashboards show all systems "Green" and optimized, yet operators on the floor are reporting jams, stops, and quality defects.</p>
+                  <p className="text-gray-400 text-sm">Dashboards show all systems "Green" and optimised, yet operators on the floor are reporting jams, stops, and quality defects.</p>
                 </div>
               </div>
             </div>
