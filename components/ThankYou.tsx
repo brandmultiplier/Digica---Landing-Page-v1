@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Header } from './Header';
 import { Footer } from './Footer';
 
 export const ThankYou: React.FC = () => {
@@ -32,7 +31,6 @@ export const ThankYou: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-digica-red selection:text-white">
-      <Header />
       <main className="py-24 lg:py-32">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
