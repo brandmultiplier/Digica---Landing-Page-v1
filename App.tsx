@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Customers } from './components/Customers';
@@ -9,10 +10,11 @@ import { Process } from './components/Process';
 import { Personas } from './components/Personas';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
+import { ThankYou } from './components/ThankYou';
 
-function App() {
+function HomePage() {
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-digica-red selection:text-white">
+    <>
       <Header />
       <main>
         <Hero />
@@ -25,7 +27,20 @@ function App() {
         <CTA />
       </main>
       <Footer />
-    </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-white font-sans selection:bg-digica-red selection:text-white">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/thank-you" element={<ThankYou />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
