@@ -14,6 +14,11 @@ export const ThankYou: React.FC = () => {
     script.type = 'text/javascript';
     script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
     script.async = true;
+    
+    script.onerror = () => {
+      console.error('Failed to load HubSpot Meetings Embed script');
+    };
+
     document.body.appendChild(script);
 
     // Cleanup on unmount
