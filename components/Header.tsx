@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
             onClick={(e) => handleScrollTo(e, 'about')}
             className="text-sm font-medium text-gray-600 hover:text-digica-red transition-colors"
           >
-            About Us
+            Who is Digica
           </a>
           <a 
             href="#problem" 
@@ -120,7 +120,7 @@ export const Header: React.FC = () => {
             className="text-sm font-medium text-gray-600" 
             onClick={(e) => handleScrollTo(e, 'about')}
           >
-            About Us
+            Who is Digica
           </a>
           <a 
             href="#problem" 

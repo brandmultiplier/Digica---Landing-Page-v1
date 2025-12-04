@@ -132,7 +132,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-digica-dark via-transparent to-digica-dark/50"></div>
 
         {/* 5. HUD Overlay Elements */}
-        <div className="absolute top-24 left-10 hidden lg:block z-10">
+        <div className="absolute top-32 left-10 hidden lg:block z-10">
            <div className="font-mono text-[10px] text-digica-red animate-pulse">
              SYSTEM_DIAGNOSTICS<br/>
              ------------------<br/>
@@ -146,7 +146,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-20">
         
         {/* TEXT CONTENT */}
-        <div className="max-w-2xl relative lg:ml-16">
+        <div className="max-w-2xl relative">
           <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-digica-red to-transparent opacity-50 hidden md:block"></div>
           
           <div className="inline-flex items-center gap-2 mb-6 border border-digica-red/30 bg-digica-red/10 px-3 py-1 rounded-sm backdrop-blur-sm">

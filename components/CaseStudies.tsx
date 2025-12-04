@@ -13,7 +13,7 @@ const projects = [
   },
   {
     client: "BAE Systems",
-    title: "Manufacturing Process Optimisation",
+    title: "Process Optimisation",
     desc: "Developed a machine learning model to recommend optimisations to the process as the factory is operating to reduce energy and resource consumption.",
     tech: "Python, PyQT6, ORTools",
     icon: <Activity className="w-6 h-6" />,
@@ -49,7 +49,7 @@ export const CaseStudies: React.FC = () => {
   return (
     <section id="projects" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading>Example Projects</SectionHeading>
+        <SectionHeading>Case Studies</SectionHeading>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
