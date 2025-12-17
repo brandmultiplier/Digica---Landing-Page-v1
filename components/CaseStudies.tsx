@@ -4,9 +4,9 @@ import { ArrowRight, Cpu, Eye, Activity, Wifi } from 'lucide-react';
 
 const projects = [
   {
-    client: "LEGO",
+    client: "TOY FACTORY",
     title: "Detection of printing errors",
-    desc: "Lego needs to identify printing errors and assess whether they render the whole brick unsellable. We trained a CNN for detecting three kinds of printing errors with per-pixel probability heatmaps.",
+    desc: "Toy Factory needs to identify printing errors and assess whether they render the whole brick unsellable. We trained a CNN for detecting three kinds of printing errors with per-pixel probability heatmaps.",
     tech: "PyTorch, OpenCV, Docker, FastAPI",
     icon: <Eye className="w-6 h-6" />,
     result: "Automated QA threshold established for accept/reject decisions."
