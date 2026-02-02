@@ -42,7 +42,16 @@ export const CTA: React.FC = () => {
           portalId: "3066619",
           formId: "9d155bcb-5412-473e-9b71-190a6c836718",
           region: "na1",
-          target: '#hubspot-form-container'
+          target: '#hubspot-form-container',
+          onFormReady: function($form: HTMLFormElement) {
+            // Auto-check all consent/privacy checkboxes
+            const checkboxes = $form.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox: Element) => {
+              (checkbox as HTMLInputElement).checked = true;
+              // Trigger change event so HubSpot registers the change
+              checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+          }
         });
       }
     };
